@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: easy-notes-app
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels: # labels to select/identify the deployment
+        app: easy-notes-app  
+    spec:     # pod spec                  
+      containers: 
+      - name: easy-notes-app
+        image: easynotes:v1 # image we pushed
+        ports:
+        - containerPort: 3000
